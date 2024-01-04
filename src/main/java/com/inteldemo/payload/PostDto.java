@@ -1,22 +1,22 @@
-package com.inteldemo.entity;
+package com.inteldemo.payload;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+@Data
 
 @Getter
 @Setter
-@Entity
-@Table(name="posts")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data //automatically getters and setters are created whicha are boiler code
-public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PostDto {
     private long id;
     private String title;
-
     private String description;
+    private String content;
+
+    public long getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -42,15 +42,7 @@ public class Post {
         this.content = content;
     }
 
-    private String content;
-
-
-    public long getId() {
-        return id;
-    }
-
     public void setId(long id) {
         this.id = id;
     }
-
 }
